@@ -8,13 +8,10 @@ class Solution:
     def findWords(self, board: List[List[str]], words: List[str]) -> List[str]:
         if not board or len(board)==0 or not words or len(words)==0:
             return []
-        
         root = TrieNode()
        
         for word in words:
-            
             parent=root
-            
             for letter in word:
                 if letter in parent.children:
                     parent=parent.children[letter]
