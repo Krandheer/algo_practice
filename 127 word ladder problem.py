@@ -3,6 +3,7 @@ class Solution:
     def getWildcard(self, word, i):
         return word[:i] + '*' + word[i + 1:]
     
+    #this build adjancy list of word differing by one letter
     def buildWildcardToWords(self, wordList):
         wildcardToWords = {}
         
@@ -17,13 +18,16 @@ class Solution:
             
         return wildcardToWords
     
-    def ladderLength(self, beginWord: str, endWord: str, wordList: List[str]) -> int:
+    def ladderLength(self, beginWord, endWord, wordList):
         if endWord not in wordList:
             return 0
         
         wildcardToWords = self.buildWildcardToWords(wordList)
+        
+        #seen will ensure if visited or not
         seen = set()
         
+        #this queue will help to do the bfs traversal
         queue = collections.deque([(beginWord, 1)])
         
         while queue:
