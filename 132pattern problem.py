@@ -1,5 +1,5 @@
 class Solution:
-    def find132pattern(self, nums: List[int]) -> bool:
+    def find132pattern(self, nums):
         if not nums: 
             return False
         k,stack=float("-inf"),[]
